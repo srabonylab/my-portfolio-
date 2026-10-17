@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090611">
+  <title>Srabony Islam | Portfolio</title>
+  <style>
+    :root {
+      --bg: #090611;
+      --card: #151020;
+      --purple: #b45cff;
+      --pink: #f08bff;
+      --text: #f7efff;
+      --muted: #bdb0ce;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 7%;
+      background: #090611ee;
+      border-bottom: 1px solid #39214d;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo { color: var(--pink); font-weight: bold; font-size: 20px; }
+
+    .links { display: flex; gap: 20px; font-size: 14px; }
+
+    .links a:hover { color: var(--pink); }
+
+    section { padding: 70px 8%; scroll-margin-top: 65px; }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content { flex: 1 1 280px; }
+
+    .tag { color: var(--pink); font-weight: bold; }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 65px);
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    h1 span, h2 span { color: var(--purple); }
+
+    .intro { color: var(--muted); max-width: 520px; }
+
+    .buttons { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid var(--purple);
+      border-radius: 25px;
+      color: white;
+      transition: .25s;
+    }
+
+    .btn.primary {
+      background: linear-gradient(100deg, #8528e8, #c04cff);
+      border: 0;
+    }
+
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px #a84cff55; }
+
+    .profile {
+      width: 220px;
+      height: 220px;
+      max-width: 65vw;
+      max-height: 65vw;
+      border-radius: 50%;
+      border: 3px solid var(--purple);
+      display: grid;
+      place-items: center;
+      margin: auto;
+      background: radial-gradient(circle, #392052, #130b20);
+      box-shadow: 0 0 40px #a33cff44;
+      font-size: 72px;
+    }
+
+    .center { text-align: center; }
+
+    h2 { font-size: 30px; margin-bottom: 24px; }
+
+    .about {
+      background: var(--card);
+      border: 1px solid #39214d;
+      border-radius: 18px;
+      padding: 25px;
+      color: var(--muted);
+    }
+
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 18px;
+    }
+
+    .skill, .project {
+      background: var(--card);
+      border: 1px solid #38204e;
+      border-radius: 14px;
+      padding: 22px;
+      transition: .25s;
+    }
+
+    .skill { text-align: center; font-weight: bold; }
+
+    .skill:hover, .project:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+      box-shadow: 0 8px 28px #9a39d522;
+    }
+
+    .skill .emoji { display: block; font-size: 32px; }
+
+    .project h3 { color: var(--pink); margin-bottom: 8px; }
+
+    .project p { color: var(--muted); font-size: 14px; }
+
+    .project a { display: inline-block; color: var(--pink); margin-top: 14px; }
+
+    .contact-box {
+      background: linear-gradient(135deg, #21112f, #100b1c);
+      border: 1px solid #563174;
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .contact-box p { color: var(--muted); margin-bottom: 18px; }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #39214d;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s, transform .7s;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 520px) {
+      nav { padding: 14px 5%; }
+      .links { gap: 10px; font-size: 12px; }
+      .logo { font-size: 16px; }
+      section { padding: 55px 6%; }
+      .hero { text-align: center; justify-content: center; }
+      .buttons { justify-content: center; }
+      .profile { width: 175px; height: 175px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="#home">♡ Srabony</a>
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content reveal">
+      <p class="tag">HELLO, WORLD! ✨</p>
+      <h1>I'm <span>Srabony Islam</span></h1>
+      <h3>🌸 Beginner Web Developer</h3>
+      <p class="intro">
+        Welcome to my little corner of the internet!
+        I'm learning HTML, CSS, JavaScript and GitHub.
+        I love creating beautiful things and turning
+        my ideas into reality. 💜
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">My Projects ↗</a>
+        <a class="btn" href="#contact">Contact Me ♡</a>
+      </div>
+    </div>
+
+    <div class="hero-content center reveal">
+      <div class="profile" aria-label="Decorative profile icon">🌸</div>
+      <p class="tag" style="margin-top:18px">Dream ✦ Learn ✦ Build</p>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <h2>About <span>Me</span> 🌷</h2>
+    <div class="about">
+      <p>
+        Hi! I'm Srabony, a beginner web developer.
+        I'm currently learning HTML, CSS, JavaScript
+        and Git & GitHub.
+      </p>
+      <p>
+        I enjoy learning new skills, exploring creative
+        ideas and building my first websites.
+        My dream is to become a skilled web developer.
+      </p>
+      <p>One step at a time, one dream at a time! 💖</p>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <h2>My <span>Skills</span> 💻</h2>
+    <div class="skills">
+      <div class="skill"><span class="emoji">🌐</span>HTML</div>
+      <div class="skill"><span class="emoji">🎨</span>CSS</div>
+      <div class="skill"><span class="emoji">✨</span>JavaScript</div>
+      <div class="skill"><span class="emoji">🐙</span>GitHub</div>
+    </div>
+    <p style="color:var(--muted); margin-top:18px">
+      I'm still learning and improving every day! 🌱
+    </p>
+  </section>
+
+  <section id="projects" class="reveal">
+    <h2>My <span>Projects</span> 🚀</h2>
+    <div class="projects">
+      <article class="project">
+        <h3>🌸 Personal Portfolio</h3>
+        <p>A little website to introduce myself and share my journey.</p>
+        <a href="#home">Explore ↗</a>
+      </article>
+      <article class="project">
+        <h3>🧮 Calculator</h3>
+        <p>A calculator project I plan to build while learning JavaScript.</p>
+        <a href="#contact">Coming soon ✨</a>
+      </article>
+      <article class="project">
+        <h3>🎀 Creative Website</h3>
+        <p>More creative projects will be added as I learn new skills.</p>
+        <a href="#contact">Coming soon ✨</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="contact-box">
+      <h2>Let's <span>Connect!</span> 💌</h2>
+      <p>
+        Thanks for visiting my portfolio.
+        Follow my learning journey on GitHub!
+      </p>
+      <a class="btn primary"
+         href="https://github.com/srabonyislam-gif"
+         target="_blank" rel="noopener noreferrer">
+        Visit My GitHub ↗
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    Made with 💜 by Srabony Islam
+    <br>Dream ✦ Learn ✦ Build © 2026
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
